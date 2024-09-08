@@ -8,7 +8,6 @@ import {
 import { MdPhoneIphone } from "react-icons/md";
 import { SiNintendo } from "react-icons/si";
 import { BsGlobe } from "react-icons/bs";
-import React from "react";
 import { Platform } from "../hooks/useGames";
 import { IconType } from "react-icons/lib";
 import { HStack, Icon } from "@chakra-ui/react";
@@ -17,8 +16,8 @@ interface Props {
   platforms: Platform[];
 }
 
-const PlatformIconList = ({ platforms }: Props) => {
-  const iconMap: { [key: string]: IconType } = {
+const PlatformIconList = ({platforms}: Props) => {
+  const iconMap: { [key:string]: IconType } = {
     pc: FaWindows,
     playstation: FaPlaystation,
     xbox: FaXbox,
