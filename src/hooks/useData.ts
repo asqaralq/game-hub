@@ -23,8 +23,8 @@ const useData = <T>(endpoint: string, requestConfig?: AxiosRequestConfig, deps?:
         setLoading(false);
       })
       .catch((err) => {
-        if (err instanceof CanceledError) return;
-        setError(err.message);
+        if (err instanceof CanceledError) return 
+        setError(err.message) 
         setLoading(false);
       });
 
