@@ -1,13 +1,23 @@
 import { Input, InputGroup, InputLeftElement } from '@chakra-ui/react'
-import React from 'react'
+import React, { useRef } from 'react'
 import { BsSearch } from 'react-icons/bs'
 
-const SearchInput = () => {
+interface Props{
+      onSearch : (SearchText: string) => void;
+}
+
+const SearchInput = ({onSearch}:Props) => {
+      const ref = useRef<HTMLInputElement>(null);
   return (
+      <form onSubmit={(event) => {
+            event.preventDefault();
+            if (ref.current) onSearch(ref.current.value)
+      }}>
       <InputGroup>
        <InputLeftElement children={<BsSearch/>}/>
-       <Input borderRadius={25} placeholder='Searching Games...' variant='filled'/>
+       <Input ref={ref} borderRadius={25} placeholder='Searching Games...' variant='filled'/>
       </InputGroup>
+      </form>
     
   )
 }
